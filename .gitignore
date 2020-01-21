@@ -1,6 +1,6 @@
 oidc_config.json
 ormconfig.json
 localdev.sql
-client/dist/bundle.js
+client/dist/bundle*
 server/dist
 */node_modules
