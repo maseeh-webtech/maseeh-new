@@ -11,7 +11,7 @@ module.exports = {
     publicPath: "/",
     filename: "bundle.js",
   },
-  devtool: "inline-source-map",
+  devtool: "source-map",
   module: {
     rules: [
       {
@@ -43,7 +43,7 @@ module.exports = {
   resolve: {
     extensions: ["*", ".js", ".jsx"],
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  // plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
     port: 8080,
     historyApiFallback: true,
