@@ -5,7 +5,7 @@ server/ormconfig.json
 # Ignore everything webpack makes
 client/dist/*
 !client/dist/index.html
-!client/dist/favicon.ico
+!client/dist/icons
 
 # Ignore compiled TypeScript stuff
 server/dist
