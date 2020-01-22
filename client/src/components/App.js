@@ -1,7 +1,10 @@
 import React, { Component } from "react";
+import Homepage from "./Homepage/Homepage.js";
+import NavBar from "./NavBar/NavBar.js";
+
+// Import CSS files for styling
 import "./App.css";
-import Homepage from "./Homepage.js";
-import NavBar from "./NavBar.js";
+import "../utils.css";
 
 class App extends Component {
   constructor(props) {
@@ -14,7 +17,9 @@ class App extends Component {
     return (
       <>
         <NavBar />
-        <Homepage />
+        <div className="AppContainer">
+          <Homepage className="Homepage" />
+        </div>
       </>
     );
   }

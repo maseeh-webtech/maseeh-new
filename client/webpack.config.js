@@ -11,7 +11,6 @@ module.exports = {
     publicPath: "/",
     filename: "bundle.js",
   },
-  devtool: "source-map",
   module: {
     rules: [
       {
@@ -34,7 +33,7 @@ module.exports = {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
           {
-            loader: "url-loader",
+            loader: "file-loader",
           },
         ],
       },

@@ -1,0 +1,29 @@
+.NavBar-container {
+  background-color: var(--primary);
+}
+
+.NavBar-title {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
+.NavBar-logo {
+  margin: 0.4em;
+  height: 50px;
+  width: 50px;
+  background-image: url("./maseeh-logo.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.NavBar-titleText {
+  color: white;
+  font-size: 2em;
+  font-family: "Lato", sans-serif;
+  align-self: center;
+}
+
+.NavBar-buttonContainer {
+  display: flex;
+}

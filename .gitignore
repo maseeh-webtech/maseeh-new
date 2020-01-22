@@ -1,6 +1,13 @@
-oidc_config.json
-ormconfig.json
-localdev.sql
-client/dist/bundle*
+# Configuration files
+server/src/oidc_config.json
+server/ormconfig.json
+
+# Ignore everything webpack makes
+client/dist/*
+!client/dist/index.html
+!client/dist/favicon.ico
+
+# Ignore compiled TypeScript stuff
 server/dist
+
 */node_modules

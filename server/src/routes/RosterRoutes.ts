@@ -8,7 +8,7 @@ export function createRosterEntryRoutes(rosterEntryRepository: Repository<Roster
   const router = Router();
 
   router.get("/all", async (req: Request, res: Response) => {
-    if (req.user !== undefined && (req.user as User).hasPermission(Permissions.readRoster)) {
+    if (req.user && (req.user as User).hasPermission(Permissions.readRoster)) {
       const entries = await rosterEntryRepository.find();
       const output = new Map<number, RosterEntry>();
       entries.forEach((element) => {
@@ -21,7 +21,7 @@ export function createRosterEntryRoutes(rosterEntryRepository: Repository<Roster
   });
 
   router.post("/", async (req: Request, res: Response) => {
-    if (req.user !== undefined && (req.user as User).hasPermission(Permissions.writeRoster)) {
+    if (req.user && (req.user as User).hasPermission(Permissions.writeRoster)) {
       if (req.body instanceof RosterEntry) {
         const entry = rosterEntryRepository.create(req.body);
         return rosterEntryRepository.save(entry);
@@ -34,7 +34,7 @@ export function createRosterEntryRoutes(rosterEntryRepository: Repository<Roster
   });
 
   router.put("/", (req: Request, res: Response) => {
-    if (req.user !== undefined && (req.user as User).hasPermission(Permissions.writeRoster)) {
+    if (req.user && (req.user as User).hasPermission(Permissions.writeRoster)) {
       if (req.body instanceof RosterEntry) {
         const entry = rosterEntryRepository.findOne(req.params.id).then(() => {
           rosterEntryRepository.merge(entry, req.body);
@@ -49,7 +49,7 @@ export function createRosterEntryRoutes(rosterEntryRepository: Repository<Roster
   });
 
   router.delete("/:id", async (req: any, res: Response) => {
-    if (req.user !== undefined && (req.user as User).hasPermission(Permissions.writeRoster)) {
+    if (req.user && (req.user as User).hasPermission(Permissions.writeRoster)) {
       if (req.body instanceof RosterEntry) {
         return rosterEntryRepository.remove(req.params.id);
       } else {

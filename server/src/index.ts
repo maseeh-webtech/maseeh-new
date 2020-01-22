@@ -11,6 +11,7 @@ import { createUserRoutes } from "./routes/UserRoutes";
 
 // create typeorm connection
 createConnection().then((connection) => {
+  console.log("Successfully connected to database");
   // Provision Repositories to the various database entities
   // that we need to use.
   const userRepository = connection.getRepository(User);
@@ -18,7 +19,7 @@ createConnection().then((connection) => {
 
   // Set up Express app
   const app = express();
-  app.use(session({ secret: "foobarY33T" }));
+  app.use(session({ secret: "foobarY33T", resave: true, saveUninitialized: false }));
 
   // Set up post request parsing - urlencoded is needed for local auth strat
   app.use(express.json());

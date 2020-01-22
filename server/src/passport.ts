@@ -14,7 +14,7 @@ export function configurePassport(
   rosterEntryRepository: Repository<RosterEntry>
 ) {
   // If deployed to a server, set up OIDC
-  if (process.env.NODE_ENV === Env.Prod || process.env.NODE_ENV === Env.Dev) {
+  if (process.env.NODE_ENV === Env.Prod) {
     passport.use(
       new oidc.Strategy(config, (iss, sub, profile, done) => {
         // Look for user's OpenID in our User DB
