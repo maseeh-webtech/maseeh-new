@@ -53,7 +53,7 @@ export function configurePassport(
                         }
                       );
                     } else {
-                      console.log("Bailed out and errored");
+                      console.log("Failed to locate user in roster");
                       done(null, false, { message: "Failed to locate user in roster" });
                     }
                   },
@@ -71,11 +71,11 @@ export function configurePassport(
         );
       })
     );
-    // tslint:disable-next-line
+
+    // Set up routes for real OIDC auth
     router.get("/login", (req: Request, res: Response, next: Function) => {
       console.log("Attempting to authenticate.");
       passport.authenticate("openidconnect", {
-        failureRedirect: "/login?failed=true",
         successRedirect: "/",
       })(req, res, next);
     });
@@ -105,15 +105,12 @@ export function configurePassport(
       })
     );
 
-    router.get("/login", (req: Request, res: Response) => {
-      res.redirect("/devlogin");
-    });
-
-    // tslint:disable-next-line
+    // Set up routes for basic DB auth
     router.post("/login", (req: Request, res: Response, next: Function) => {
       console.log("Attempting to use developer authentication");
+      console.log(req.body);
       passport.authenticate("local", {
-        failureRedirect: "/",
+        failureRedirect: "/loginfailed",
         successRedirect: "/",
       })(req, res, next);
     });
@@ -125,6 +122,7 @@ export function configurePassport(
     });
   }
 
+  // Methods to populate req.user in Express
   passport.serializeUser((user, done) => {
     console.log(`Serializing: ${JSON.stringify(user)}`);
     done(null, user.openid);

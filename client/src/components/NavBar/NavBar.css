@@ -1,5 +1,6 @@
 .NavBar-container {
   background-color: var(--primary);
+  display: flex;
 }
 
 .NavBar-title {
@@ -26,4 +27,13 @@
 
 .NavBar-buttonContainer {
   display: flex;
+  align-self: center;
+}
+
+.NavBar-button {
+  margin: 0.5em;
+}
+
+a {
+  align-self: center;
 }

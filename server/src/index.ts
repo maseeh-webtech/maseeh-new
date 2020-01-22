@@ -36,10 +36,11 @@ createConnection().then((connection) => {
   const apiRouter = Router();
   apiRouter.use("/users", createUserRoutes(userRepository));
   apiRouter.use("/residents", createRosterEntryRoutes(rosterEntryRepository));
+  apiRouter.use("/test", (req, res) => res.send("woohoo api is up!"));
 
-  app.use("/api/v1", apiRouter);
+  app.use("/api", apiRouter);
 
-  configurePassport(passport, app, userRepository, rosterEntryRepository);
+  configurePassport(passport, apiRouter, userRepository, rosterEntryRepository);
 
   // start express server
   const port = process.env.PORT || 8081;
