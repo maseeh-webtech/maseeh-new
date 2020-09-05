@@ -1,13 +1,20 @@
-# Configuration files
-server/src/oidc_config.json
-server/ormconfig.json
+node_modules/
 
-# Ignore everything webpack makes
+# Build directories
 client/dist/*
-!client/dist/index.html
-!client/dist/icons
+server/dist/*
 
-# Ignore compiled TypeScript stuff
-server/dist
+# Parcel's cache
+.cache/
 
-*/node_modules
+# OS-generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Configuration files
+oidc_config.json
+ormconfig*.json
+.env

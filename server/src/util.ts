@@ -1,6 +1,6 @@
 export enum Env {
   Prod = "prod",
-  Local = "local",
+  Dev = "dev",
 }
 
 export enum Permissions {

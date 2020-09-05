@@ -1,0 +1,14 @@
+.App-header {
+  padding: 1rem 4rem;
+}
+
+.App-nav {
+  display: flex;
+  justify-content: flex-end;
+  padding: 2rem;
+}
+
+.App-container {
+  max-width: 800px;
+  margin: auto;
+}
