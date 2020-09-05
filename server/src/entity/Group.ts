@@ -4,16 +4,16 @@ import { User } from "./User";
 
 @Entity()
 export class Group {
-    @PrimaryGeneratedColumn()
-    public id: number;
+  @PrimaryGeneratedColumn()
+  public id: number;
 
-    @Column()
-    public name: string;
+  @Column()
+  public name: string;
 
-    @ManyToMany((type) => User)
-    public users: User[];
+  @ManyToMany(() => User)
+  public users: User[];
 
-    @OneToOne((type) => Permissions)
-    @JoinColumn()
-    public permissions: Permissions;
+  @OneToOne(() => Permissions)
+  @JoinColumn()
+  public permissions: Permissions;
 }

@@ -9,7 +9,7 @@ const Homepage = (_props: Props) => {
   const [message, setMessage] = React.useState<string | null>(null);
 
   React.useEffect(() => {
-    fetch("/api/hello")
+    fetch("/api/test")
       .then((response) => response.json())
       .then((data) => {
         setMessage(data.message);

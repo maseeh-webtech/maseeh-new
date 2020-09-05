@@ -26,7 +26,7 @@ export class User {
   @Column()
   public room: number;
 
-  @ManyToMany((type) => Group)
+  @ManyToMany(() => Group)
   @JoinTable()
   public groups: Group[];
 
@@ -36,5 +36,5 @@ export class User {
 
   public hasPermission = (permission: Permissions): boolean => {
     return true;
-  }
+  };
 }
