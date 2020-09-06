@@ -2,6 +2,16 @@
   padding: 1rem 4rem;
 }
 
+.App-top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.App-login {
+  height: 100%;
+}
+
 .App-nav {
   display: flex;
   justify-content: flex-end;

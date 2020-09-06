@@ -37,8 +37,7 @@ export function configurePassport(
                     if (rosterEntry) {
                       console.log("Found this in the roster: " + rosterEntry);
                       user = new User();
-                      user.firstName = rosterEntry.firstName;
-                      user.lastName = rosterEntry.lastName;
+                      user.name = rosterEntry.name;
                       user.username = rosterEntry.username;
                       user.active = true;
                       user.room = rosterEntry.room;
@@ -86,16 +85,18 @@ export function configurePassport(
       req.logout();
       res.redirect("/");
     });
-  } else {
-    // Case where server is running locally, set up basic DB authorization
+  } else if (process.env.NODE_ENV === Env.Dev) {
+    // Case where server is running locally, set up hardcoded login
     passport.use(
       new local.Strategy((username, password, done) => {
-        userRepository.findOne({ where: { username, openid: password } }).then(
+        console.log("using dev login");
+        userRepository.findOne({ where: { username: "dev" } }).then(
           (user: User) => {
-            if (user && user.active) {
+            console.log("found user", user);
+            if (user) {
               done(null, user);
             } else {
-              done(null, false, { message: "Incorrect username or password" });
+              done(null, false, { message: "Dev login failed." });
             }
           },
           (reason) => {
@@ -107,13 +108,17 @@ export function configurePassport(
     );
 
     // Set up routes for basic DB auth
-    router.post("/login", (req: Request, res: Response, next: Function) => {
-      console.log("Attempting to use developer authentication");
-      console.log(req.body);
-      passport.authenticate("local", {
-        failureRedirect: "/loginfailed",
-        successRedirect: "/",
-      })(req, res, next);
+    router.get("/login", (req, res, next) => {
+      userRepository.findOne({ where: { username: "dev" } }).then((user: User) => {
+        if (user) {
+          req.user = user;
+          console.log("Successfully completed dev login!");
+          res.send(req.user);
+        } else {
+          console.log("dev login failed");
+          res.status(500).send({ message: "dev login failed" });
+        }
+      });
     });
 
     router.get("/logout", (req: Request, res: Response) => {

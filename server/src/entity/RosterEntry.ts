@@ -9,10 +9,7 @@ export class RosterEntry {
   public username: string;
 
   @Column()
-  public firstName: string;
-
-  @Column()
-  public lastName: string;
+  public name: string;
 
   @Column()
   public room: number;
