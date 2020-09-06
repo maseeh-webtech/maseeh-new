@@ -1,4 +1,4 @@
-name: Typecheck client
+name: Typecheck server
 
 on:
   push:
