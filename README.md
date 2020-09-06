@@ -43,7 +43,7 @@ Not finished yet. The current plan is to set up GitHub actions to
 automatically deploy the latest master if it passes type checks and tests,
 using deploy keys and Ansible.
 
-### Note on TypeScript
+## Note on TypeScript
 
 Although [Parcel](https://parceljs.org/) is much faster and easier to configure than Webpack for
 builds, it _does not perform type checking_. Therefore, we expect development on this project will

@@ -5,7 +5,7 @@ import { RouteComponentProps } from "@reach/router";
 type OwnProps = {};
 type Props = RouteComponentProps & OwnProps;
 
-const Homepage = (_props: Props) => {
+const HomePage = (_props: Props) => {
   const [message, setMessage] = React.useState<string | null>(null);
 
   React.useEffect(() => {
@@ -63,4 +63,4 @@ const Homepage = (_props: Props) => {
   );
 };
 
-export default Homepage;
+export default HomePage;

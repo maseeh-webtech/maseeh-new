@@ -9,6 +9,8 @@
     "pages": "^0.0.16",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^1.2.1",
     "src": "^1.1.2"
   },
   "devDependencies": {

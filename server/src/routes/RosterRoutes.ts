@@ -4,7 +4,7 @@ import { RosterEntry } from "../entity/RosterEntry";
 import { Permissions } from "../util";
 import { User } from "../entity/User";
 
-export function createRosterEntryRoutes(rosterEntryRepository: Repository<RosterEntry>): Router {
+export const createRosterEntryRoutes = (rosterEntryRepository: Repository<RosterEntry>): Router => {
   const router = Router();
 
   router.get("/all", async (req: Request, res: Response) => {
@@ -61,4 +61,4 @@ export function createRosterEntryRoutes(rosterEntryRepository: Repository<Roster
   });
 
   return router;
-}
+};

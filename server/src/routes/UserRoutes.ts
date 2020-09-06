@@ -2,7 +2,7 @@ import { Request, Response, Router } from "express";
 import { Repository } from "typeorm";
 import { User } from "../entity/User";
 
-export function createUserRoutes(userRepository: Repository<User>): Router {
+export const createUserRoutes = (userRepository: Repository<User>): Router => {
   const router = Router();
 
   router.get("/userinfo", async (req: Request, res: Response) => {
@@ -41,4 +41,4 @@ export function createUserRoutes(userRepository: Repository<User>): Router {
   });
 
   return router;
-}
+};
