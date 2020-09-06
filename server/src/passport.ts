@@ -4,8 +4,9 @@ import { Request, Response, Router } from "express";
 import { Repository } from "typeorm";
 import { RosterEntry } from "./entity/RosterEntry";
 import { User } from "./entity/User";
+// @ts-ignore: this config file is not checked in to git
 import * as config from "./oidc_config.json";
-import { Env, Permissions } from "./util";
+import { Env } from "./util";
 
 export function configurePassport(
   passport,
