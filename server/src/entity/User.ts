@@ -18,15 +18,12 @@ export class User {
   public username: string;
 
   @Column()
-  public firstName: string;
-
-  @Column()
-  public lastName: string;
+  public name: string;
 
   @Column()
   public room: number;
 
-  @ManyToMany((type) => Group)
+  @ManyToMany(() => Group)
   @JoinTable()
   public groups: Group[];
 
@@ -36,5 +33,5 @@ export class User {
 
   public hasPermission = (permission: Permissions): boolean => {
     return true;
-  }
+  };
 }

@@ -7,7 +7,7 @@ export function createUserRoutes(userRepository: Repository<User>): Router {
 
   router.get("/userinfo", async (req: Request, res: Response) => {
     if (req.user == null) {
-      res.status(403).send({message: "Error: you must be logged in to access this"});
+      res.status(403).send({ message: "Error: you must be logged in to access this" });
     } else {
       res.send(req.user);
     }

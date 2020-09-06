@@ -1,0 +1,23 @@
+{
+  "name": "maseeh",
+  "version": "1.0.0",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "repository": "https://github.com/maseeh-webtech/maseeh-new",
+  "author": "Kye Burchard <kyeb@mit.edu>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "client": "yarn workspace maseeh-client dev",
+    "server": "yarn workspace maseeh-server dev",
+    "build:client": "yarn workspace maseeh-client build",
+    "build:server": "yarn workspace maseeh-server build",
+    "build": "yarn build:client && yarn build:server",
+    "typecheck": "yarn workspace maseeh-client tsc && yarn workspace maseeh-server tsc"
+  },
+  "devDependencies": {
+    "prettier": "2.1.1"
+  }
+}
